@@ -1,0 +1,15 @@
+---
+
+- hosts: all
+  tasks:
+    - name: create user
+      user: name={{ username }} shell=/bin/bash createhome=yes
+
+    - name: set authorized key
+      authorized_key:
+        user: "{{ username }}"
+        key: "{{ lookup('file', '/home/{{ username }}/.ssh/id_rsa.pub') }}"
+        state: present
+
+    - name: add sudoers file
+      shell: 'echo "{{ username }} ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/{{ username }}'

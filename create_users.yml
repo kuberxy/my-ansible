@@ -13,3 +13,9 @@
 
     - name: add sudoers file
       shell: 'echo "{{ username }} ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/{{ username }}'
+
+    - name: allow user access by ssh
+      lineinfile: 
+        dest: /etc/ssh/sshd_config
+        regexp: '^(AllowUsers.*)$'
+        line: '\1 {{ username }}'

@@ -1,0 +1,17 @@
+---
+
+- hosts: all
+  tasks:
+    - name: dynamic group
+      group_by: 
+        key: os_{{ ansible_distribution }}
+
+- hosts: os_Ubuntu
+  tasks:
+    - name: install mysql client
+      shell: apt-get install -y mysql-client
+
+- hosts: os_CentOS
+  tasks:
+    - name: update repertory client
+      shell: yum install -y mysql

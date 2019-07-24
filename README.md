@@ -63,6 +63,7 @@ ansible -i hosts.ini all -m ping
 
 ```shell
 ansible-playbook -i hosts.ini create_users.yml -b
+ansible -i inventory.ini all -m ping
 ```
 
 

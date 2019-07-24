@@ -16,6 +16,17 @@
 
     - name: allow user access by ssh
       lineinfile: 
-        dest: /etc/ssh/sshd_config
+        path: /etc/ssh/sshd_config
         regexp: '^(AllowUsers.*)$'
         line: '\1 {{ username }}'
+        state: present
+        backrefs: yes
+      register: change_sshd_conf
+
+    - name: print register change_sshd_conf
+      debug:
+        var: change_sshd_conf
+
+    - name: restart sshd
+      shell: "systemctl restart sshd"
+      when: change_sshd_conf.changed == true

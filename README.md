@@ -44,12 +44,22 @@ cd ~ && git clone https://github.com/kuberxy/my-ansible.git && cd my-ansible
 
 ```shell
 sudo apt-get install -y python-pip sshpass
+
+sudo bash -c "
+cat > /etc/pip.conf << EOF
+[global]
+trusted-host=mirrors.aliyun.com
+index-url=http://mirrors.aliyun.com/pypi/simple
+EOF
+"
+
 pip install -r requirements.txt
 ```
 
 
 
 ### 安装python2
+注：根据环境调整hosts.ini
 
 ```shell
 ansible -i hosts.ini all -m ping --ssh-common-args="-o StrictHostKeyChecking=no"
@@ -60,6 +70,7 @@ ansible -i hosts.ini all -m ping
 
 
 ### 管理用户SSH互信
+注：根据环境调整inventory.ini
 
 ```shell
 ansible-playbook -i hosts.ini create_users.yml -b

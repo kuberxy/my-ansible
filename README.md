@@ -20,12 +20,12 @@
 ### 创建管理用户
 
 ```shell
-sudo useradd cyadmin -m
-echo 'cyadmin:cyadmin' | sudo chpasswd
+sudo useradd myadmin -m
+echo 'myadmin:myadmin' | sudo chpasswd
 
-sudo bash -c "echo 'cyadmin    ALL=(ALL:ALL) NOPASSWD: ALL' > /etc/sudoers.d/cyadmin"
+sudo bash -c "echo 'myadmin    ALL=(ALL:ALL) NOPASSWD: ALL' > /etc/sudoers.d/myadmin"
 
-sudo su - cyadmin
+sudo su - myadmin
 
 ssh-keygen -t rsa -f ~/.ssh/id_rsa -P "" -q
 ```

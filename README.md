@@ -20,7 +20,7 @@
 ### 创建管理用户
 
 ```shell
-sudo useradd myadmin -m
+sudo useradd myadmin -m -s /bin/bash
 echo 'myadmin:myadmin' | sudo chpasswd
 
 sudo bash -c "echo 'myadmin    ALL=(ALL:ALL) NOPASSWD: ALL' > /etc/sudoers.d/myadmin"

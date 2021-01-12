@@ -63,7 +63,7 @@ pip3 install -r requirements.txt
 
 ```shell
 ansible -i hosts.ini all -m ping --ssh-common-args="-o StrictHostKeyChecking=no"
-ansible -i hosts.ini ubuntu -m raw -a "apt-get install -y python-minimal" -b
+ansible -bi hosts.ini ubuntu -m raw -a "apt-get install -y python3-minimal"
 ansible -i hosts.ini all -m ping
 ```
 

@@ -58,7 +58,7 @@ pip3 install -r requirements.txt
 
 
 
-### 安装python2
+### 安装python3
 注：根据环境调整hosts.ini
 
 ```shell

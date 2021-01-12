@@ -20,7 +20,7 @@
 ### 创建管理用户
 
 ```shell
-sudo useradd myadmin -m -s /bin/bash
+sudo adduser --disabled-password --gecos "" myadmin
 echo 'myadmin:myadmin' | sudo chpasswd
 
 sudo bash -c "echo 'myadmin    ALL=(ALL:ALL) NOPASSWD: ALL' > /etc/sudoers.d/myadmin"
@@ -43,7 +43,7 @@ cd ~ && git clone https://github.com/kuberxy/my-ansible.git && cd my-ansible
 ### 安装ansible
 
 ```shell
-sudo apt-get install -y python-pip sshpass
+sudo apt-get install -y python3-pip sshpass
 
 sudo bash -c "
 cat > /etc/pip.conf << EOF
@@ -53,7 +53,7 @@ index-url=http://mirrors.aliyun.com/pypi/simple
 EOF
 "
 
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 

@@ -77,4 +77,9 @@ ansible-playbook -i hosts.ini create_users.yml -b
 ansible -i inventory.ini all -m ping
 ```
 
+### 配置节点hosts文件
+注：根据环境调整hosts
+```shell
+ansible -i inventory.ini all -m copy -a "src=./hosts dest=/etc/hosts owner=root  group=root mode=0644 backup=yes"
+```
 

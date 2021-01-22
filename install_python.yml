@@ -1,0 +1,9 @@
+---
+
+- hosts: all
+  tasks:
+    - name: install python
+      raw: "apt-get update && apt-get install -y python3-minimal"
+
+    - name: ping node
+      ping: 

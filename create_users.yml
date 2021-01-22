@@ -30,3 +30,6 @@
     - name: restart sshd
       shell: "systemctl restart sshd"
       when: change_sshd_conf.changed == true
+
+    - name: ping node
+      ping: 

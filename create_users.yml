@@ -21,8 +21,10 @@
         line: '\1 \2 \4 \3'
         state: present
         backrefs: yes
-      register: change_sshd_conf
+      notify: restart sshd
 
-    - name: restart sshd
-      shell: "systemctl restart sshd"
-      when: change_sshd_conf.changed == true
+   handlers:
+     - name: restart sshd
+       systemd: 
+         name: sshd
+         state: restarted

@@ -18,7 +18,7 @@
       lineinfile: 
         path: /etc/ssh/sshd_config
         regexp: '^(AllowUsers)(.*)({{ username }})(.*)$'
-        line: '\1 \2 \4 \3'
+        line: '\1\2\4\3'
         state: present
         backrefs: yes
       notify: restart sshd

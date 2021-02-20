@@ -8,7 +8,7 @@
     - name: set authorized key
       authorized_key:
         user: "{{ username }}"
-        key: "{{ lookup('file', '/home/{{ username }}/.ssh/id_rsa.pub') }}"
+        key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
         state: present
 
     - name: add sudoers file
@@ -23,13 +23,6 @@
         backrefs: yes
       register: change_sshd_conf
 
-    - name: print register change_sshd_conf
-      debug:
-        var: change_sshd_conf
-
     - name: restart sshd
       shell: "systemctl restart sshd"
       when: change_sshd_conf.changed == true
-
-    - name: ping node
-      ping: 

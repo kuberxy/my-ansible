@@ -23,8 +23,8 @@
         backrefs: yes
       notify: restart sshd
 
-   handlers:
-     - name: restart sshd
-       systemd: 
-         name: sshd
-         state: restarted
+  handlers:
+    - name: restart sshd
+      systemd: 
+        name: sshd
+        state: restarted

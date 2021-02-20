@@ -17,8 +17,8 @@
     - name: allow user access by ssh
       lineinfile: 
         path: /etc/ssh/sshd_config
-        regexp: '^(AllowUsers.*)$'
-        line: '\1 {{ username }}'
+        regexp: '^(AllowUsers)(.*)({{ username }})(.*)$'
+        line: '\1 \2 \4 \3'
         state: present
         backrefs: yes
       register: change_sshd_conf

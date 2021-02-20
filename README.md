@@ -2,13 +2,13 @@
 
 ### 环境依赖
 
-#### 中心节点
+#### 中控节点
 
 - Python 2 (versions 2.6 or 2.7) or Python 3 (versions 3.5 and higher) 
 
 
 
-#### 远程节点
+#### 被管节点
 
 - ssh
 

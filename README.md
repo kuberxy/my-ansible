@@ -69,7 +69,7 @@ ansible -i hosts.ini all -m ping
 
 
 
-### 管理用户SSH互信
+### 与被管节点建立SSH互信
 注：根据环境调整inventory.ini
 
 ```shell

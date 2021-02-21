@@ -2,13 +2,13 @@
 
 ### 环境依赖
 
-#### 中控节点
+#### 控制节点
 
 - Python 2 (versions 2.6 or 2.7) or Python 3 (versions 3.5 and higher) 
 
 
 
-#### 被管节点
+#### 被控节点
 
 - ssh
 
@@ -58,7 +58,7 @@ pip3 install -r requirements.txt
 
 
 
-### 安装python3
+### 在被控节点安装python3
 注：根据环境调整hosts.ini
 
 ```shell
@@ -69,7 +69,7 @@ ansible -i hosts.ini all -m ping
 
 
 
-### 与被管节点建立SSH互信
+### 与被控节点建立SSH互信
 注：根据环境调整inventory.ini
 
 ```shell
